@@ -1,0 +1,37 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+        xmlns:localization="clr-namespace:Common.Core.Localization;assembly=Common.Core"
+        xmlns:converters="clr-namespace:DynamicLocalization.Converters"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        x:Class="DynamicLocalization.Views.ShellView"
+        WindowStartupLocation="CenterScreen"
+        Title="{Binding Title}" Height="550" Width="800">
+
+    <Window.Resources>
+        <converters:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+    </Window.Resources>
+
+    <Grid RowDefinitions="*, Auto">
+        <Grid Grid.Row="0" ColumnDefinitions="*,*,*">
+            <ContentControl Grid.Column="0" prism:RegionManager.RegionName="RegionA" />
+            <ContentControl Grid.Column="1" prism:RegionManager.RegionName="RegionB" />
+            <ContentControl Grid.Column="2" prism:RegionManager.RegionName="RegionC" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <styles:Card Padding="0" InsideClipping="True" Margin="0,5" Width="159">
+                <StackPanel Orientation="Horizontal" Height="32">
+                    <RadioButton Classes="Button" GroupName="Lang"
+                                 Content="Русский"
+                                 IsChecked="{Binding AppCultureInfo, Converter={StaticResource  EnumToBooleanConverter}, ConverterParameter={x:Static localization:LanguagesEnum.ru}}"
+                                 Command="{Binding Path=ChangeLanguageCommand}" />
+                    <RadioButton Classes="Button" GroupName="Lang"
+                                 Content=" English "
+                                 IsChecked="{Binding AppCultureInfo, Converter={StaticResource  EnumToBooleanConverter}, ConverterParameter={x:Static localization:LanguagesEnum.en}}"
+                                 Command="{Binding Path=ChangeLanguageCommand}" />
+                </StackPanel>
+            </styles:Card>
+        </Grid>
+    </Grid>
+</Window>

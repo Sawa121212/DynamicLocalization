@@ -1,0 +1,52 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="500" d:DesignWidth="300"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+             xmlns:localization="clr-namespace:Common.Core.Localization;assembly=Common.Core"
+             x:Class="ModuleB.Views.TabBView"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+
+    <Grid RowDefinitions="Auto,*">
+        <TabControl Grid.Row="0">
+            <TabItem Header="Tab B">
+                <StackPanel>
+                    <TextBlock Text="{Binding Message}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" />
+
+                    <StackPanel Orientation="Horizontal" Margin="3" Spacing="5"
+                                HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="{Binding Value, StringFormat={}Value: {0}}"
+                                   VerticalAlignment="Center"
+                                   Margin="3,0" />
+                        <Button Content="+1" Command="{Binding IncrementCommand}" />
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+        <StackPanel Grid.Row="1" Spacing="5" Margin="0, 10">
+            <styles:Card Padding="0" HorizontalAlignment="Center">
+                <StackPanel>
+                    <MenuItem Header="{localization:Localize CutB}" />
+                    <MenuItem Header="{localization:Localize CopyB}" />
+                    <MenuItem Header="{localization:Localize PasteB}" />
+                    <Separator />
+                    <MenuItem Header="{localization:Localize DuplicateB}" />
+                    <MenuItem Header="{localization:Localize Select_AllB}" />
+                    <Separator />
+                    <MenuItem Header="{localization:Localize DeleteB}" Foreground="Red" />
+                </StackPanel>
+            </styles:Card>
+            <Button Content="{localization:Localize Select_AllB}"
+                    Margin="0,10" Padding="3"
+                    ToolTip.Tip="{localization:Localize Select_AllB}"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

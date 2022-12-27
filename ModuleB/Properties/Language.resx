@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="CopyB" xml:space="preserve">
+        <value>CopyB</value>
+    </data>
+    <data name="CutB" xml:space="preserve">
+        <value>CutB</value>
+    </data>
+    <data name="PasteB" xml:space="preserve">
+        <value>PasteB</value>
+    </data>
+    <data name="DuplicateB" xml:space="preserve">
+        <value>DuplicateB</value>
+    </data>
+    <data name="Select_AllB" xml:space="preserve">
+        <value>Select All B</value>
+    </data>
+    <data name="DeleteB" xml:space="preserve">
+        <value>DeleteB</value>
+    </data>
+</root>
