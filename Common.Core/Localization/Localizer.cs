@@ -5,11 +5,12 @@ using System.Resources;
 namespace Common.Core.Localization
 {
     /// <summary>
+    /// Localizer
     /// Локализатор
     /// </summary>
     public class Localizer : ILocalizer, INotifyPropertyChanged
     {
-        public readonly string FALLBACK_LANGUAGE = LanguagesEnum.ru.ToString();
+        private readonly string DefaultLanguage = LanguagesEnum.ru.ToString();
 
         private const string IndexerName = "Item";
         private const string IndexerArrayName = "Item[]";
@@ -35,7 +36,8 @@ namespace Common.Core.Localization
         }
 
         /// <summary>
-        /// Добавит Ресурс в коллекцию
+        /// Add Resource to Collection
+        /// Добавить Ресурс в коллекцию
         /// </summary>
         /// <param name="resourceManager"></param>
         public void AddResourceManager(ResourceManager resourceManager)
@@ -44,6 +46,7 @@ namespace Common.Core.Localization
         }
 
         /// <summary>
+        /// Change localization
         /// Изменить локализацию
         /// </summary>
         /// <param name="language"></param>
@@ -51,24 +54,16 @@ namespace Common.Core.Localization
         {
             if (string.IsNullOrEmpty(language))
             {
-                language = FALLBACK_LANGUAGE;
+                language = DefaultLanguage;
             }
 
             CultureInfo.CurrentUICulture = new CultureInfo(language);
             LoadLanguage();
         }
 
-        public string TryUseSystemLanguageFallbackEnglish()
-        {
-            // todo 
-            var curLang = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
-
-            ChangeLanguage(curLang);
-            return curLang;
-        }
-
         /// <summary>
-        /// Получить Выражение из Ресурсов по ключу
+        /// Get Expression
+        /// Получить Выражение
         /// </summary>
         /// <param name="key">Ключ</param>
         public string this[string key]
@@ -94,9 +89,10 @@ namespace Common.Core.Localization
         }
 
         /// <summary>
-        /// выражение слов
+        /// Get Expression from Resources by Key
+        /// Получить Выражение из Ресурсов по ключу
         /// </summary>
-        /// <param name="key"></param>
+        /// <param name="key">Ключ</param>
         /// <returns></returns>
         public string GetExpression(string key)
         {
@@ -111,7 +107,7 @@ namespace Common.Core.Localization
             return string.Empty;
         }
 
-        public void InvalidateEvents()
+        private void InvalidateEvents()
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(string.Empty));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(IndexerName));
@@ -119,8 +115,8 @@ namespace Common.Core.Localization
         }
 
         /// <summary>
-        /// Экземпляр
+        /// Instance / Экземпляр
         /// </summary>
-        public static Localizer Instance { get; set; } = new Localizer();
+        public static Localizer Instance { get; } = new();
     }
 }

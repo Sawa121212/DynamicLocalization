@@ -23,6 +23,7 @@ namespace DynamicLocalization.Views
             ChangeLanguageCommand = new DelegateCommand(async () => await OnChangeLanguage());
             AppCultureInfo = CultureInfo.CurrentUICulture.ToString().ToEnum<LanguagesEnum>();
 
+            // Change the resource language forcibly during initialization
             // Изменим язык ресурсов принудительно при инициализации
             OnChangeLanguage();
             _initialized = true;
@@ -52,7 +53,7 @@ namespace DynamicLocalization.Views
         }
 
         /// <summary>
-        /// Язык приложения
+        /// Application Language / Язык приложения
         /// </summary>
         public LanguagesEnum AppCultureInfo
         {

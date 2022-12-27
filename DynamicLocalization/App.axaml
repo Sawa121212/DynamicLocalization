@@ -7,6 +7,7 @@
         <themes:BundledTheme BaseTheme="Dark" PrimaryColor="Blue" SecondaryColor="Amber" />
     </Application.Resources>
     
+    <!-- Используем стиль Material.Avalonia -->
     <Application.Styles>
         <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />
     </Application.Styles>

@@ -4,6 +4,10 @@ using Avalonia.Markup.Xaml.MarkupExtensions;
 
 namespace Common.Core.Localization
 {
+    /// <summary>
+    /// Binding an expression by key
+    /// Привязка выражения по ключу
+    /// </summary>
     public class LocalizeExtension : MarkupExtension
     {
         public LocalizeExtension(string key)
