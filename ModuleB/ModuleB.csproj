@@ -7,16 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.10.18" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Reference Include="Material.Styles">
-        <HintPath>C:\Users\U302062\.nuget\packages\material.avalonia\2.5.1\lib\netstandard2.0\Material.Styles.dll</HintPath>
-      </Reference>
-      <Reference Include="Prism.Avalonia">
-        <HintPath>C:\Users\U302062\.nuget\packages\prism.avalonia\8.1.97.2\lib\net6.0\Prism.Avalonia.dll</HintPath>
-      </Reference>
+        <PackageReference Include="Avalonia" Version="0.10.18"/>
+        <PackageReference Include="Material.Avalonia" Version="2.5.1"/>
+        <PackageReference Include="Prism.Avalonia" Version="8.1.97.2"/>
     </ItemGroup>
 
     <ItemGroup>
